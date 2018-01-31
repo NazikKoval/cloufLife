@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> </head>
+<link rel="stylesheet" href="css/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+   
+    
+   
+    
+<body>
+    <header class="header">
+        <p class="logoPage">CloudLife</p>
+    </header>
+    <div class="container-fluid" ng-controller="posterCtrl as post">
+        <div class="row" >
+            <div class="col-md-4 col-md-offset-2 image"><img class="img-responsive" src="images/aab.jpg"> </div>
+            <div class="col-md-4 containerUserName" ng-repeat="key in post.user">
+                <h1 class="userName">{{main.auth[0].name}} {{main.auth[0].sname}}</h1>
+                <p>age: {{main.auth[0].age}}</p>
+                <p>city: null</p>
+                <p>description: null</p>
+            </div>
+        </div>
+        <div class="row containerContent">
+            <div class="col-md-2 col-md-offset-2 navi"><p class="friends">Friends:</p>
+            <p ng-repeat="key in post.friend">{{key.friends}}</p>
+            </div>
+            <div class="col-md-6">
+                <h3>Тема:</h3>
+                <input type="text" ng-model="post.tema" class="form-control tem">
+                <h3>Повідомлення:</h3>
+                <textarea rows="5" ng-model="post.message" class="form-control textarea inp"></textarea>
+                <br>
+                <input type="button" value="SEND" class="btn btn-info btn-lg" ng-click="post.send()">
+                <div class="row contMassage" ng-repeat="key in post.text">
+                    <p>{{key.tem}}</p>
+                    <p>Posted: {{key.today}}</p>
+                    <div class="message">{{key.mes}}</div>
+                    <button class="btn remove" ng-click="post.remove(key)">Remove</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        Created by Nazar Koval
+    </footer>
+</body>
+
+
+
+</html>

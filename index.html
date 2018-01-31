@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> </head>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<body ng-controller="loginCtrl as main">
+   <div class="pageOne">
+    <h1 class="logo">CloudLife</h1>
+    <div class="contain">
+        <button type="button" class="btn btn-primary btn-lg btn-block" id="log">Увійти</button>
+        <button type="button" class="btn btn-info btn-lg btn-block" id="reg">Реєстрація</button>
+    </div>
+    <div id="login">
+        <form>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" class="form-control" placeholder="Email" ng-model="log_email"> </div>
+            <div class="form-group">
+                <label>Пароль</label>
+                <input type="password" class="form-control" placeholder="Password" ng-model="log_password"> </div>
+            <button type="button" class="btn btn-success btn-lg btn-block" ng-click="main.login(log_email, log_password)">Увійти</button>
+        </form>
+    </div>
+    <div id="register">
+        <form>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control" placeholder="Email" ng-model="email"> </div>
+            <div class="form-group">
+                <label>Пароль</label>
+                <input type="password" class="form-control" placeholder="Password" ng-model="password"> </div>
+            <div class="form-group">
+                <label>Ім'я</label>
+                <input type="text" class="form-control" placeholder="Name" ng-model="user_name"> </div>
+            <div class="form-group">
+                <label>Прізвище</label>
+                <input type="text" class="form-control" placeholder="Lastname" ng-model="user_sname"> </div>
+            <div class="form-group">
+                <label>Вік</label>
+                <input type="text" class="form-control" placeholder="age" ng-model="age"> </div>
+                <input type="button" value="register" class="btn btn-success btn-lg btn-block" ng-click="main.register(user_name, email, age, user_sname, password)">
+            
+        </form>
+    </div>
+    </div>
+    <ng-view></ng-view>
+</body>
+<script src="src/angular.min.js"></script>
+<script src="src/angular-route.min.js"></script>
+
+<script src="js/main.js"></script>
+    <script src="app.js"></script>
+    <script src="loginCtrl.js"></script>
+    <script src="config.js"></script>
+
+<script src="posterCtrl.js"></script>
+</html>
